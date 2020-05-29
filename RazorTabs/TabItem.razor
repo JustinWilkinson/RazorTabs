@@ -1,0 +1,24 @@
+﻿@if (Parent.ActiveItem == this)
+{
+    @ChildContent
+}
+
+@code {
+    [CascadingParameter]
+    private TabControl Parent { get; set; }
+
+    [Parameter]
+    public RenderFragment ChildContent { get; set; }
+
+    [Parameter]
+    public string Title { get; set; }
+
+    [Parameter]
+    public EventCallback OnTabSelected { get; set; }
+
+    private int _tabPosition;
+
+    protected override void OnInitialized() => _tabPosition = Parent.AddItem(this);
+
+    protected override void OnParametersSet() => Title ??= $"Tab {_tabPosition}";
+}

@@ -1,0 +1,35 @@
+﻿<div class="d-flex @Class">
+    <div class="btn-group overflow-auto @ButtonGroupClass" role="group">
+        @foreach (TabItem tabItem in Parent.Items)
+        {
+            <button type="button" class="@ButtonClass @(tabItem == Parent.ActiveItem ? ActiveClass : InactiveClass)" @onclick="@(() => Parent.ActivateItem(tabItem))">@tabItem.Title</button>
+        }
+    </div>
+</div>
+
+@code {
+    [CascadingParameter]
+    private TabControl Parent { get; set; }
+
+    [Parameter]
+    public string Class { get; set; }
+
+    [Parameter]
+    public string ButtonGroupClass { get; set; }
+
+    [Parameter]
+    public string ButtonClass { get; set; }
+
+    [Parameter]
+    public string InactiveClass { get; set; }
+
+    [Parameter]
+    public string ActiveClass { get; set; }
+
+    protected override void OnParametersSet()
+    {
+        ButtonClass ??= "btn";
+        ActiveClass ??= "btn-primary";
+        InactiveClass ??= "btn-secondary";
+    }
+}

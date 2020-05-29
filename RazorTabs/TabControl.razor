@@ -1,0 +1,56 @@
+﻿<CascadingValue Value="this">
+    @if (TabHeader != null)
+    {
+        @TabHeader
+    }
+    else
+    {
+        <TabHeaderTemplate />
+    }
+
+    <div class="w-100">
+        @TabItems
+    </div>
+
+    @if (TabFooter != null)
+    {
+        @TabFooter
+    }
+</CascadingValue>
+
+@code {
+    [Parameter]
+    public RenderFragment TabHeader { get; set; }
+
+    [Parameter]
+    public RenderFragment TabItems { get; set; }
+
+    [Parameter]
+    public RenderFragment TabFooter { get; set; }
+
+    [Parameter]
+    public EventCallback<TabItem> OnTabSelected { get; set; }
+
+    public ICollection<TabItem> Items { get; set; } = new List<TabItem>();
+
+    public TabItem ActiveItem { get; private set; }
+
+    public int AddItem(TabItem tabItem)
+    {
+        Items.Add(tabItem);
+        if (Items.Count == 1)
+        {
+            ActiveItem = tabItem;
+        }
+        StateHasChanged();
+        return Items.Count;
+    }
+
+    public async Task ActivateItem(TabItem item)
+    {
+        ActiveItem = item;
+        await OnTabSelected.InvokeAsync(ActiveItem);
+        await ActiveItem.OnTabSelected.InvokeAsync(null);
+        StateHasChanged();
+    }
+}

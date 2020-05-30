@@ -153,7 +153,6 @@
                                 </div>
                             </div>
                         </TabItem>
-
                         <TabItem Title="Customized Styles">
                             <div class="row">
                                 <div class="card border px-0 col-10 mx-auto">
@@ -224,6 +223,76 @@
         &lt;/TabFooter&gt; 
     &lt;/TabControl&gt;
 &lt;/div&gt;</pre>
+                                                    </div>
+                                                </TabItem>
+                                            </div>
+                                        </TabItems>
+                                    </TabControl>
+                                </div>
+                            </div>
+                        </TabItem>
+                        <TabItem Title="Event Callbacks">
+                            <div class="row">
+                                <div class="card border px-0 col-10 mx-auto">
+                                    <TabControl>
+                                        <TabHeader>
+                                            <TabHeaderTemplate Class="card-header" />
+                                        </TabHeader>
+                                        <TabItems>
+                                            <div class="card-body">
+                                                <TabItem Title="View Demo">
+                                                    <TabControl OnTabSelected="@(() => Console.WriteLine("Hello from the TabControl!"))">
+                                                        <TabItems>
+                                                            <div class="card-body">
+                                                                <TabItem Title="Info">
+                                                                    <h5>This demonstrates the OnTabSelected functionality for the tab control.</h5>
+                                                                    <ul class="mb-0">
+                                                                        <li>EventCallbacks are also provided to support custom logic when any tab, or any specific tab is selected.</li>
+                                                                        <li>When any tab is selected, the EventCallback on the TabControl is run allowing us to perform additional logic.</li>
+                                                                        <li>Such events are demonstrated here, whenever any tab is selected, a console message is written saying: "Hello from the TabControl!"</li>
+                                                                    </ul>
+                                                                </TabItem>
+                                                                <TabItem Title="Hello World!" OnTabSelected="@(() => Console.WriteLine("Hello World!"))">
+                                                                    <div class="mt-1">
+                                                                        Check the console - you should see a log message saying: "Hello World!"
+                                                                    </div>
+                                                                </TabItem>
+                                                                <TabItem Title="Goodbye World!" OnTabSelected="@(() => Console.WriteLine("Goodbye World!"))">
+                                                                    <div class="mt-1">
+                                                                        Check the console - you should see a log message saying: "Goodbye World!"
+                                                                    </div>
+                                                                </TabItem>
+                                                            </div>
+                                                        </TabItems>
+                                                    </TabControl>
+                                                </TabItem>
+                                                <TabItem Title="View Code">
+                                                    <div class="col-12">
+                                                        <pre class="mb-0">
+&lt;TabControl OnTabSelected=&quot;@@(() =&gt; Console.WriteLine(&quot;Hello from the TabControl!&quot;))&quot;&gt;
+    &lt;TabItems&gt;
+        &lt;div class=&quot;card-body&quot;&gt;
+            &lt;TabItem Title=&quot;Info&quot;&gt;
+                &lt;h5&gt;This demonstrates the OnTabSelected functionality for the tab control.&lt;/h5&gt;
+                &lt;ul class=&quot;mb-0&quot;&gt;
+                    &lt;li&gt;EventCallbacks are also provided to support custom logic when any tab, or any specific tab is selected.&lt;/li&gt;
+                    &lt;li&gt;When any tab is selected, the EventCallback on the TabControl is run allowing us to perform additional logic.&lt;/li&gt;
+                    &lt;li&gt;Such events are demonstrated here, whenever any tab is selected, a console message is written saying: &quot;Hello from the TabControl!&quot;&lt;/li&gt;
+                &lt;/ul&gt;
+            &lt;/TabItem&gt;
+            &lt;TabItem Title=&quot;Hello World!&quot; OnTabSelected=&quot;@@(() =&gt; Console.WriteLine(&quot;Hello World!&quot;))&quot;&gt;
+                &lt;div class=&quot;mt-1&quot;&gt;
+                    Check the console - you should see a log message saying: &quot;Hello World!&quot;
+                 &lt;/div&gt;
+            &lt;/TabItem&gt;
+            &lt;TabItem Title=&quot;Goodbye World!&quot; OnTabSelected=&quot;@@(() =&gt; Console.WriteLine(&quot;Goodbye World!&quot;))&quot;&gt;
+                &lt;div class=&quot;mt-1&quot;&gt;
+                    Check the console - you should see a log message saying: &quot;Goodbye World!&quot; 
+                &lt;/div&gt;
+             &lt;/TabItem&gt;
+        &lt;/div&gt;
+    &lt;/TabItems&gt;
+&lt;/TabControl&gt;</pre>
                                                     </div>
                                                 </TabItem>
                                             </div>

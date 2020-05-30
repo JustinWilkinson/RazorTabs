@@ -11,7 +11,8 @@
     <Product>RazorTabs</Product>
     <PackageLicenseFile>LICENSE</PackageLicenseFile>
     <RepositoryUrl>https://github.com/JustinWilkinson/RazorTabs</RepositoryUrl>
-    <Copyright>Justin Wilkinson</Copyright>
+    <Copyright>Justin Wilkinson (2020)</Copyright>
+    <Version>1.0.0</Version>
   </PropertyGroup>
 
   <ItemGroup>

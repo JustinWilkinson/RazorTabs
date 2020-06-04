@@ -2,7 +2,7 @@
     <div class="btn-group overflow-auto @ButtonGroupClass" role="group">
         @foreach (TabItem tabItem in Parent.Items)
         {
-            <button type="button" class="@ButtonClass @(tabItem == Parent.ActiveItem ? ActiveClass : InactiveClass)" @onclick="@(() => Parent.ActivateItem(tabItem))">@tabItem.Title</button>
+            <button id="@tabItem.ButtonId" type="button" class="@ButtonClass @(tabItem == Parent.ActiveItem ? ActiveClass : InactiveClass)" @onclick="@(() => Parent.ActivateItem(tabItem))">@tabItem.Title</button>
         }
     </div>
 </div>

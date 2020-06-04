@@ -14,11 +14,18 @@
     public string Title { get; set; }
 
     [Parameter]
+    public string ButtonId { get; set; }
+
+    [Parameter]
     public EventCallback OnTabSelected { get; set; }
 
     private int _tabPosition;
 
     protected override void OnInitialized() => _tabPosition = Parent.AddItem(this);
 
-    protected override void OnParametersSet() => Title ??= $"Tab {_tabPosition}";
+    protected override void OnParametersSet()
+    {
+        Title ??= $"Tab {_tabPosition}";
+        ButtonId ??= $"button-tab-{_tabPosition}";
+    }
 }

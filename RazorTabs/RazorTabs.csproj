@@ -12,8 +12,9 @@
     <PackageLicenseFile>LICENSE</PackageLicenseFile>
     <RepositoryUrl>https://github.com/JustinWilkinson/RazorTabs</RepositoryUrl>
     <Copyright>Justin Wilkinson (2020)</Copyright>
-    <Version>1.0.1</Version>
+    <Version>1.0.2</Version>
     <Description>A Razor Class library for use in Blazor Apps and Razor pages to simplify tab templating.</Description>
+    <AssemblyVersion>1.0.2.0</AssemblyVersion>
   </PropertyGroup>
 
   <ItemGroup>
